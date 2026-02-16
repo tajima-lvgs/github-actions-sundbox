@@ -15,3 +15,5 @@ jobs:
         run: echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
       - name: Echo version
         run: echo "version=${{ steps.set-version.outputs.version }}"
+      - name: Echo hoge
+        uses: ./.github/actions/echo
