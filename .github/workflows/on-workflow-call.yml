@@ -5,12 +5,13 @@ jobs:
   echo-ref-name:
     runs-on: ubuntu-latest
     steps:
-      - name: Set Release Version from Ref
-        run: echo "${{ github.ref_name }}"
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            .github/workflows
+            .github/actions
       - name: Set Release Version from Ref
-        run: echo "${{ github.ref_name }}"
+        id: set-version
+        run: echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+      - name: Echo version
+        run: echo "version=${{ steps.set-version.outputs.version }}"

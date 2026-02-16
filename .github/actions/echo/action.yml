@@ -1,0 +1,9 @@
+name: echo
+description: echo hoge
+
+runs:
+  using: "composite"
+  steps:
+    - name: echo
+      run: echo "hoge"
+      shell: bash
