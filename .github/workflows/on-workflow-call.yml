@@ -1,0 +1,16 @@
+name: on-workflow-call
+on:
+  workflow_call:
+jobs:
+  echo-ref-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Release Version from Ref
+        run: echo "${{ github.ref_name }}"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/workflows
+      - name: Set Release Version from Ref
+        run: echo "${{ github.ref_name }}"

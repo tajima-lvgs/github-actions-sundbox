@@ -1,0 +1,8 @@
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/on-workflow-call.yml
