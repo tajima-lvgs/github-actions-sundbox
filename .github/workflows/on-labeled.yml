@@ -6,7 +6,7 @@ jobs:
   remove-label:
     runs-on: ubuntu-latest
     steps:
-      - name: echo
+      - name: echo label name
         run: echo ${{ github.event.label.name }}
       - name: Remove label
         run: |
