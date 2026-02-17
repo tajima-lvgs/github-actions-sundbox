@@ -17,3 +17,9 @@ jobs:
         run: echo "version=${{ steps.set-version.outputs.version }}"
       - name: Echo hoge
         uses: ./.github/actions/echo
+        with:
+          message: >-
+            ${{
+              steps.set-version.outputs.version == 'main' && 'hoge' ||
+              'fuga'
+            }}
