@@ -5,6 +5,8 @@ on:
 jobs:
   remove-label:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: echo label name
         run: echo ${{ github.event.label.name }}
