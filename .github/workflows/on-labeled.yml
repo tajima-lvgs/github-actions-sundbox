@@ -11,8 +11,8 @@ jobs:
       - name: echo label name
         run: echo ${{ github.event.label.name }}
       - name: Remove label
-        run: |
-          gh pr edit ${{ github.event.pull_request.html_url }} \
-            --remove-label "${{ github.event.label.name }}"
+        run: gh pr edit "${PR_URL}" --remove-label "${LABEL_NAME}" || true
         env:
           GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          LABEL_NAME: ${{ github.event.label.name }}
