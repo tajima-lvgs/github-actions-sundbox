@@ -20,7 +20,7 @@ jobs:
   echo-hoge:
     runs-on: ubuntu-latest
     needs: echo-ref-name
-    if: always()
+    if: needs.echo-ref-name.result != 'skipped'
     steps:
       - name: Echo hoge
         run: echo "hoge"
