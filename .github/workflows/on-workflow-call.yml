@@ -16,6 +16,8 @@ jobs:
         run: echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
       - name: Echo version
         run: echo "version=${{ steps.set-version.outputs.version }}"
+      - name: fail test
+        run: exit 1
 
   echo-hoge:
     runs-on: ubuntu-latest
